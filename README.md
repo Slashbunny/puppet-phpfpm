@@ -7,7 +7,7 @@ This module manages the php-fpm daemon and pools **only**. Managing php, php ext
 The module has only been tested on Ubuntu.
 
 * `phpfpm` : Class that installs and configures php-fpm itself.
-* `phpfpm::pool` : Definition used to cofigure a fpm pool
+* `phpfpm::pool` : Definition used to configure a fpm pool
 
 ## Examples
 
