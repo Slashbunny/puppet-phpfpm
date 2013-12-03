@@ -5,7 +5,12 @@
 #
 # === Parameters
 #
-# See php-fpm.conf for configuration details
+# The puppet parameter names mirror the names in the php-fpm configuration file.
+#
+# See php-fpm.conf on your system or php-fpm.conf.erb in the templates folder
+# for configuration details.
+#
+# Each parameter is documented extensively within the config.
 #
 # === Examples
 #
