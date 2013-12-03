@@ -92,7 +92,7 @@ daemonize = <%= @daemonize %>
 
 ; Set open file descriptor rlimit for the master process.
 ; Default Value: system defined value
-<% if @rlimit_files != undef -%>
+<% if @rlimit_files -%>
 ;rlimit_files = <%= @rlimit_files %>
 <% else -%>
 ;rlimit_files = 1024
@@ -101,7 +101,7 @@ daemonize = <%= @daemonize %>
 ; Set max core size rlimit for the master process.
 ; Possible Values: 'unlimited' or an integer greater or equal to 0
 ; Default Value: system defined value
-<% if @rlimit_core != undef -%>
+<% if @rlimit_core -%>
 rlimit_core = <%= @rlimit_core %>
 <% else -%>
 ;rlimit_core = 0
