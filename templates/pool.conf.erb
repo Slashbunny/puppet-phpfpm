@@ -108,28 +108,28 @@ pm = <%= @pm %>
 ; forget to tweak pm.* to fit your needs.
 ; Note: Used when pm is set to 'static', 'dynamic' or 'ondemand'
 ; Note: This value is mandatory.
-pm.max_children = <%= @max_children %>
+pm.max_children = <%= @pm_max_children %>
 
 ; The number of child processes created on startup.
 ; Note: Used only when pm is set to 'dynamic'
 ; Default Value: min_spare_servers + (max_spare_servers - min_spare_servers) / 2
-pm.start_servers = <%= @start_servers %>
+pm.start_servers = <%= @pm_start_servers %>
 
 ; The desired minimum number of idle server processes.
 ; Note: Used only when pm is set to 'dynamic'
 ; Note: Mandatory when pm is set to 'dynamic'
-pm.min_spare_servers = <%= @min_spare_servers %>
+pm.min_spare_servers = <%= @pm_min_spare_servers %>
 
 ; The desired maximum number of idle server processes.
 ; Note: Used only when pm is set to 'dynamic'
 ; Note: Mandatory when pm is set to 'dynamic'
-pm.max_spare_servers = <%= @max_spare_servers %>
+pm.max_spare_servers = <%= @pm_max_spare_servers %>
 
 ; The number of seconds after which an idle process will be killed.
 ; Note: Used only when pm is set to 'ondemand'
 ; Default Value: 10s
-<% if @process_idle_timeout -%>
-pm.process_idle_timeout = <%= @process_idle_timeout %>
+<% if @pm_process_idle_timeout -%>
+pm.process_idle_timeout = <%= @pm_process_idle_timeout %>
 <% else -%>
 ;pm.process_idle_timeout = 10s;
 <% end -%>
@@ -138,8 +138,8 @@ pm.process_idle_timeout = <%= @process_idle_timeout %>
 ; This can be useful to work around memory leaks in 3rd party libraries. For
 ; endless request processing specify '0'. Equivalent to PHP_FCGI_MAX_REQUESTS.
 ; Default Value: 0
-<% if @max_requests -%>
-pm.max_requests = <%= @max_requests %>
+<% if @pm_max_requests -%>
+pm.max_requests = <%= @pm_max_requests %>
 <% else -%>
 ;pm.max_requests = 500
 <% end -%>
@@ -241,8 +241,8 @@ pm.max_requests = <%= @max_requests %>
 ;       anything, but it may not be a good idea to use the .php extension or it
 ;       may conflict with a real PHP file.
 ; Default Value: not set
-<% if @status_path -%>
-pm.status_path = <%= @status_path %>
+<% if @pm_status_path -%>
+pm.status_path = <%= @pm_status_path %>
 <% else -%>
 ;pm.status_path = /status
 <% end -%>
