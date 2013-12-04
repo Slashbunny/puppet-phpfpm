@@ -69,7 +69,7 @@ define phpfpm::pool (
             group    => 'root',
             mode     => '0644',
             content  => template('phpfpm/pool.conf.erb'),
-            requires => Class['Phpfpm::Package'],
+            require  => Class['Phpfpm::Package'],
             notify   => Service[$phpfpm::params::service_name],
         }
     }

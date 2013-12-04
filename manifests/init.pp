@@ -50,7 +50,7 @@ class phpfpm (
             hasstatus  => true,
             hasrestart => true,
             restart    => $restart_command,
-            requires   => Class['Phpfpm::Package'],
+            require    => Class['Phpfpm::Package'],
         }
 
         # Main php-fpm config file
