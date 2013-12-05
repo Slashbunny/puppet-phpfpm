@@ -56,6 +56,13 @@ define phpfpm::pool (
 {
     $pool_file_path = "${phpfpm::params::pool_dir}/${name}.conf"
 
+    if ( $pm_start_servers < $pm_min_spare_servers or
+         $pm_start_servers > $pm_max_spare_servers ) {
+        fail( "pm_start_servers(${pm_start_servers}) must not be less than \
+pm_min_spare_servers(${pm_min_spare_servers}) and not greater than \
+pm_max_spare_servers(${pm_max_spare_servers})" )
+    }
+
     if ( $ensure == 'absent' ) {
         file { $pool_file_path:
             ensure => 'absent',
