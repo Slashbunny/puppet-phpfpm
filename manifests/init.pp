@@ -44,20 +44,16 @@ class phpfpm (
     # Manage service and configuration only if the package is present
     if ( $ensure != 'absent' ) {
 
-        service { $service_name:
-            ensure     => 'running',
-            enable     => true,
-            hasstatus  => true,
-            hasrestart => true,
-            restart    => $restart_command,
-            require    => Class['Phpfpm::Package'],
+        # Manage daemon
+        class { 'phpfpm::service':
+            require => Class['phpfpm::package'],
         }
 
         # Main php-fpm config file
         file { "${config_dir}/${config_name}":
             ensure  => 'present',
             content => template('phpfpm/php-fpm.conf.erb'),
-            notify  => Service[$service_name],
+            notify  => Class['phpfpm::service'],
         }
     }
 }

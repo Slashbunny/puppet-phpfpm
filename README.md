@@ -110,4 +110,21 @@ phpfpm::pool { 'main':
 }
 ```
 
+Notify the php-fpm daemon of your custom php configuration changes:
+
+```puppet
+include phpfpm
+
+phpfpm::pool { 'www':
+    ensure => 'absent',
+}
+
+phpfpm::pool { 'main': }
+
+file { '/etc/php5/conf.d/pdo.ini':
+    ensure  => 'present',
+    content => template('web/pdo.ini.erb'),
+    notify  => Class['phpfpm::service'],
+}
+```
 
