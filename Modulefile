@@ -1,4 +1,4 @@
-name    'slashbunny-phpfpm'
+name    'Slashbunny-phpfpm'
 version '0.0.1'
 license 'GPLv3'
 summary 'Manages php-fpm daemon and pool configuration'
