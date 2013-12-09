@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 2.0.0
+script: "bundle exec rake ci"
+branches:
+  only:
+    - master
+env:
+  - PUPPET_VERSION=3.3.2
+notifications:
+  email: false
+gemfile: Gemfile
