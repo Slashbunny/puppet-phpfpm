@@ -437,7 +437,7 @@ security.limit_extensions = <%= @security_limit_extensions %>
 ;env[TMP] = /tmp
 ;env[TMPDIR] = /tmp
 ;env[TEMP] = /tmp
-<% @env.each do |k,v| -%>
+<% @env.sort.each do |k,v| -%>
 env[<%= k %>] = <%= v %>
 <% end -%>
 
@@ -465,16 +465,16 @@ env[<%= k %>] = <%= v %>
 ;php_admin_value[error_log] = /var/log/fpm-php.www.log
 ;php_admin_flag[log_errors] = on
 ;php_admin_value[memory_limit] = 32M
-<% @php_value.each do |k,v| -%>
+<% @php_value.sort.each do |k,v| -%>
 php_value[<%= k %>] = <%= v %>
 <% end -%>
-<% @php_flag.each do |k,v| -%>
+<% @php_flag.sort.each do |k,v| -%>
 php_flag[<%= k %>] = <%= v %>
 <% end -%>
-<% @php_admin_value.each do |k,v| -%>
+<% @php_admin_value.sort.each do |k,v| -%>
 php_admin_value[<%= k %>] = <%= v %>
 <% end -%>
-<% @php_admin_flag.each do |k,v| -%>
+<% @php_admin_flag.sort.each do |k,v| -%>
 php_admin_flag[<%= k %>] = <%= v %>
 <% end -%>
 
