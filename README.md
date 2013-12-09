@@ -1,6 +1,5 @@
 # puppet-phpfpm
 [![Build Status](https://travis-ci.org/Slashbunny/puppet-phpfpm.png?branch=master)](https://travis-ci.org/Slashbunny/puppet-phpfpm)
-
 ## Overview
 
 This module manages the php-fpm daemon and pools **only**. Managing php, php extensions, pear, pecl, nginx, apache, etc are out of the scope of this module.
