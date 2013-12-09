@@ -4,7 +4,7 @@
 # Manages the main php-fpm service. Do not initialize this class directly. Only
 # use this class to notify php-fpm
 #
-class phpfpm::service (
+class phpfpm::service
 {
     service { $phpfpm::service_name:
         ensure     => 'running',
