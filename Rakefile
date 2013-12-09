@@ -7,7 +7,8 @@ PuppetLint.configuration.send('disable_class_inherits_from_params_class')
 
 desc "Check puppet files for syntax errors"
 task :syntax do
-    Dir.glob( 'manifests/**/*.pp' ).each do |file|
+    Dir.chdir( 'manifests' )
+    Dir.glob( '**/*.pp' ).each do |file|
         system( "puppet parser validate #{file}" )
 
         if !$?.success?
