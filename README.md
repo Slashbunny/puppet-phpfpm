@@ -1,4 +1,5 @@
 # puppet-phpfpm
+[![Build Status](https://travis-ci.org/Slashbunny/puppet-phpfpm.png?branch=master)](https://travis-ci.org/Slashbunny/puppet-phpfpm)
 
 ## Overview
 
@@ -128,4 +129,3 @@ file { '/etc/php5/conf.d/pdo.ini':
 }
 ```
 
-[![Build Status](https://travis-ci.org/Slashbunny/puppet-phpfpm.png?branch=master)](https://travis-ci.org/Slashbunny/puppet-phpfpm)
