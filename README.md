@@ -23,7 +23,7 @@ phpfpm::pool { 'mypool':
 }
 ```
 
-Please see the php-fpm configuration file comments for detailed explainations about what each option does.
+Please see the php-fpm configuration file comments for detailed explanations about what each option does.
 
 ## Examples
 
