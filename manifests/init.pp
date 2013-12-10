@@ -42,7 +42,7 @@ class phpfpm (
     # Install package
     class { 'phpfpm::package':
         ensure       => $ensure,
-        pacakge_name => $package_name,
+        package_name => $package_name,
     }
 
     # Manage service and configuration only if the package is present
