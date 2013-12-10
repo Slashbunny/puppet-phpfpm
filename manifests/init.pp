@@ -55,6 +55,10 @@ class phpfpm (
             require         => Class['phpfpm::package'],
         }
 
+        file { $pool_dir:
+            ensure => 'directory',
+        }
+
         # Purge pool.d if necessary
         if ( $poold_purge == true ) {
             File[$pool_dir] {
