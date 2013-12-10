@@ -52,9 +52,11 @@ define phpfpm::pool (
     $php_flag                  = $phpfpm::params::pool_php_flag,
     $php_admin_value           = $phpfpm::params::pool_php_admin_value,
     $php_admin_flag            = $phpfpm::params::pool_php_admin_flag,
+    $service_name              = $phpfpm::params::service_name,
+    $pool_dir                  = $phpfpm::params::pool_dir,
 )
 {
-    $pool_file_path = "${phpfpm::params::pool_dir}/${name}.conf"
+    $pool_file_path = "${pool_dir}/${name}.conf"
 
     if ( $pm_start_servers < $pm_min_spare_servers or
          $pm_start_servers > $pm_max_spare_servers ) {
@@ -66,7 +68,7 @@ pm_max_spare_servers(${pm_max_spare_servers})" )
     if ( $ensure == 'absent' ) {
         file { $pool_file_path:
             ensure => 'absent',
-            notify => Service[$phpfpm::params::service_name],
+            notify => Service[$service_name],
         }
     }
     else {
@@ -77,7 +79,7 @@ pm_max_spare_servers(${pm_max_spare_servers})" )
             mode     => '0644',
             content  => template('phpfpm/pool.conf.erb'),
             require  => Class['Phpfpm::Package'],
-            notify   => Service[$phpfpm::params::service_name],
+            notify   => Service[$service_name],
         }
     }
 }

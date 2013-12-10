@@ -39,14 +39,19 @@ class phpfpm (
 ) inherits phpfpm::params
 {
     # Install package
-    class { 'phpfpm::package': }
+    class { 'phpfpm::package':
+        ensure       => $ensure,
+        pacakge_name => $package_name,
+    }
 
     # Manage service and configuration only if the package is present
     if ( $ensure != 'absent' ) {
 
         # Manage daemon
         class { 'phpfpm::service':
-            require => Class['phpfpm::package'],
+            service_name    => $service_name,
+            restart_command => $restart_command,
+            require         => Class['phpfpm::package'],
         }
 
         # Main php-fpm config file

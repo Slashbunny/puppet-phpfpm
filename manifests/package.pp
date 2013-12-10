@@ -3,10 +3,13 @@
 #
 # Installs the php-fpm package. Do not use this class directly.
 #
-class phpfpm::package
+class phpfpm::package (
+    $ensure       = 'present',
+    $package_name = $phpfpm::params::package_name,
+) inherits phpfpm::params
 {
-    package { $phpfpm::package_name:
-        ensure => $phpfpm::ensure,
+    package { $package_name:
+        ensure => $ensure,
     }
 }
 

@@ -4,14 +4,17 @@
 # Manages the main php-fpm service. Do not initialize this class directly. Only
 # use this class to notify php-fpm
 #
-class phpfpm::service
+class phpfpm::service (
+    $restart_command = $phpfpm::params::restart_command,
+    $service_name    = $phpfpm::params::service_name,
+) inherits phpfpm::params
 {
-    service { $phpfpm::service_name:
+    service { $service_name:
         ensure     => 'running',
         enable     => true,
         hasstatus  => true,
         hasrestart => true,
-        restart    => $phpfpm::restart_command,
+        restart    => $restart_command,
     }
 }
 
