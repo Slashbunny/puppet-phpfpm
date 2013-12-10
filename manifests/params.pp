@@ -7,6 +7,9 @@ class phpfpm::params {
 
     case $::osfamily {
         'debian': {
+            # Module configuration defaults
+            $poold_purge = false
+
             # Service configuration defaults
             $package_name                = 'php5-fpm'
             $service_name                = 'php5-fpm'

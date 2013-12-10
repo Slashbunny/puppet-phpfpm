@@ -25,6 +25,10 @@ phpfpm::pool { 'mypool':
 
 Please see the php-fpm configuration file comments for detailed explanations about what each option does.
 
+## Custom Parameters
+
+`$phpfpm::poold_purge` : Delete all files in the pool.d folder that aren't managed by Puppet.
+
 ## Examples
 
 **You must include the phpfpm class prior to configuring pools.**
@@ -68,14 +72,22 @@ phpfpm::pool { 'www':
 phpfpm::pool { 'main': }
 ```
 
+Alternatively, use the purge flag to remove all non-managed pools, then create a pool named "main":
+
+```puppet
+class { 'phpfpm':
+    poold_purge => true,
+}
+
+# TCP pool using 127.0.0.1, port 9000, upstream defaults
+phpfpm::pool { 'main': }
+```
+
 Add a few custom pools with advanced options:
 
 ```puppet
-include phpfpm
-
-# Remove stock distro pool
-phpfpm::pool { 'www':
-    ensure => 'absent',
+class { 'phpfpm':
+    poold_purge => true,
 }
 
 # Pool running as a different user
@@ -113,10 +125,8 @@ phpfpm::pool { 'main':
 Notify the php-fpm daemon of your custom php configuration changes:
 
 ```puppet
-include phpfpm
-
-phpfpm::pool { 'www':
-    ensure => 'absent',
+class { 'phpfpm':
+    poold_purge => true,
 }
 
 phpfpm::pool { 'main': }

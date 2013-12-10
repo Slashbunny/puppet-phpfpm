@@ -18,6 +18,7 @@
 #
 class phpfpm (
     $ensure                      = 'present',
+    $poold_purge                 = $phpfpm::params::poold_purge,
     $package_name                = $phpfpm::params::package_name,
     $service_name                = $phpfpm::params::service_name,
     $config_dir                  = $phpfpm::params::config_dir,
@@ -52,6 +53,14 @@ class phpfpm (
             service_name    => $service_name,
             restart_command => $restart_command,
             require         => Class['phpfpm::package'],
+        }
+
+        # Purge pool.d if necessary
+        if ( $poold_purge == true ) {
+            File[$pool_dir] {
+                purge   => true,
+                recurse => true,
+            }
         }
 
         # Main php-fpm config file
