@@ -4,7 +4,7 @@
 
 This module manages the php-fpm daemon and pools **only**. Managing php, php extensions, pear, pecl, nginx, apache, etc are out of the scope of this module.
 
-The module has only been tested on Ubuntu.
+The module has been tested on Ubuntu and CentOS/RHEL.
 
 * `phpfpm` : Class that installs and configures php-fpm itself.
 * `phpfpm::pool` : Definition used to configure a fpm pool
