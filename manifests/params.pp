@@ -66,7 +66,7 @@ class phpfpm::params {
             $pool_php_admin_value         = {}
             $pool_php_admin_flag          = {}
         }
-        'redhat': {
+        'redhat', 'linux': {
             # Module configuration defaults
             $poold_purge = false
 
