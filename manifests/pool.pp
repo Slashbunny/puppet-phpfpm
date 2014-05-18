@@ -5,7 +5,7 @@
 #
 # === Parameters
 #
-# The puppet parameter names mirror the names in the pool configuration file.
+# The puppet parameter name represents the name of the pool configuration file.
 #
 # You can either look at pool.conf.erb in the templates folder or look at the
 # generated configuration on your system (for example in /etc/php5/fpm/pool.d/).
@@ -58,14 +58,14 @@ define phpfpm::pool (
 {
     $pool_file_path = "${pool_dir}/${name}.conf"
 
-    if ( $pm_start_servers < $pm_min_spare_servers or
-         $pm_start_servers > $pm_max_spare_servers ) {
+    if $pm_start_servers < $pm_min_spare_servers or
+         $pm_start_servers > $pm_max_spare_servers {
         fail( "pm_start_servers(${pm_start_servers}) must not be less than \
 pm_min_spare_servers(${pm_min_spare_servers}) and not greater than \
 pm_max_spare_servers(${pm_max_spare_servers})" )
     }
 
-    if ( $ensure == 'absent' ) {
+    if $ensure == 'absent' {
         file { $pool_file_path:
             ensure => 'absent',
             notify => Service[$service_name],

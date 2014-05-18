@@ -46,7 +46,7 @@ class phpfpm (
     }
 
     # Manage service and configuration only if the package is present
-    if ( $ensure != 'absent' ) {
+    if $ensure != 'absent' {
 
         # Manage daemon
         class { 'phpfpm::service':
@@ -60,7 +60,7 @@ class phpfpm (
         }
 
         # Purge pool.d if necessary
-        if ( $poold_purge == true ) {
+        if $poold_purge == true {
             File[$pool_dir] {
                 purge   => true,
                 recurse => true,
