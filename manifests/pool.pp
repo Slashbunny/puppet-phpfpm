@@ -54,6 +54,7 @@ define phpfpm::pool (
     $php_admin_flag            = $phpfpm::params::pool_php_admin_flag,
     $service_name              = $phpfpm::params::service_name,
     $pool_dir                  = $phpfpm::params::pool_dir,
+    $pool_template_file        = $phpfpm::params::pool_template_file,
 )
 {
     $pool_file_path = "${pool_dir}/${name}.conf"
@@ -77,7 +78,7 @@ pm_max_spare_servers(${pm_max_spare_servers})" )
             owner    => 'root',
             group    => 'root',
             mode     => '0644',
-            content  => template('phpfpm/pool.conf.erb'),
+            content  => template($pool_template_file),
             require  => Class['Phpfpm::Package'],
             notify   => Service[$service_name],
         }

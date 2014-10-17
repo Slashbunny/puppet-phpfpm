@@ -31,6 +31,7 @@ class phpfpm::params {
             $restart_command             = "service ${service_name} reload"
 
             # Pool configuration defaults
+            $pool_template_file           = 'phpfpm/pool.conf.erb'
             $pool_user                    = 'www-data'
             $pool_group                   = 'www-data'
             $pool_listen                  = '127.0.0.1:9000'
@@ -91,6 +92,7 @@ class phpfpm::params {
             $restart_command             = "systemctl reload ${service_name}"
 
             # Pool configuration defaults
+            $pool_template_file           = 'phpfpm/pool.conf.erb'
             $pool_user                    = 'http'
             $pool_group                   = 'http'
             $pool_listen                  = '127.0.0.1:9000'
@@ -151,6 +153,7 @@ class phpfpm::params {
             $restart_command             = "service ${service_name} reload"
 
             # Pool configuration defaults
+            $pool_template_file           = 'phpfpm/pool.conf.erb'
             $pool_user                    = 'apache'
             $pool_group                   = 'apache'
             $pool_listen                  = '127.0.0.1:9000'
