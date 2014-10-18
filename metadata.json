@@ -1,0 +1,13 @@
+{
+  "name": "Slashbunny-phpfpm",
+  "version": "0.0.5",
+  "author": "Slashbunny",
+  "summary": "Manages php-fpm daemon and pool configuration",
+  "license": "GPLv3",
+  "source": "https://github.com/Slashbunny/puppet-phpfpm",
+  "project_page": "https://github.com/Slashbunny/puppet-phpfpm",
+  "issues_url": null,
+  "description": "Manages php-fpm daemon and pool configuration",
+  "dependencies": [
+  ]
+}
