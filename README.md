@@ -83,6 +83,15 @@ class { 'phpfpm':
 phpfpm::pool { 'main': }
 ```
 
+Use a custom template file, which you must provide, to generate the main
+FPM configuration file:
+
+```puppet
+class { 'phpfpm':
+    config_template_file => 'site/phpfpm/my-php-fpm.conf.erb',
+}
+```
+
 Add a few custom pools with advanced options:
 
 ```puppet
