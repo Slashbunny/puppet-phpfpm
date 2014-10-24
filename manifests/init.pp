@@ -23,6 +23,7 @@ class phpfpm (
     $service_name                = $phpfpm::params::service_name,
     $config_dir                  = $phpfpm::params::config_dir,
     $config_name                 = $phpfpm::params::config_name,
+    $config_template_file        = $phpfpm::params::config_template_file,
     $pool_dir                    = $phpfpm::params::pool_dir,
     $pid_file                    = $phpfpm::params::pid_file,
     $error_log                   = $phpfpm::params::error_log,
@@ -70,7 +71,7 @@ class phpfpm (
         # Main php-fpm config file
         file { "${config_dir}/${config_name}":
             ensure  => 'present',
-            content => template('phpfpm/php-fpm.conf.erb'),
+            content => template($config_template_file),
             notify  => Class['phpfpm::service'],
         }
     }
