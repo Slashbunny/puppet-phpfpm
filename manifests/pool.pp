@@ -55,32 +55,23 @@ define phpfpm::pool (
     $service_name              = $phpfpm::params::service_name,
     $pool_dir                  = $phpfpm::params::pool_dir,
     $pool_template_file        = $phpfpm::params::pool_template_file,
-)
-{
-    $pool_file_path = "${pool_dir}/${name}.conf"
+) {
+  $pool_file_path = "${pool_dir}/${name}.conf"
 
-    if $pm_start_servers < $pm_min_spare_servers or
-         $pm_start_servers > $pm_max_spare_servers {
-        fail( "pm_start_servers(${pm_start_servers}) must not be less than \
-pm_min_spare_servers(${pm_min_spare_servers}) and not greater than \
-pm_max_spare_servers(${pm_max_spare_servers})" )
-    }
+  if $pm_start_servers < $pm_min_spare_servers or
+  $pm_start_servers > $pm_max_spare_servers {
+    fail("pm_start_servers(${pm_start_servers}) must not be less than \
+      pm_min_spare_servers(${pm_min_spare_servers}) and not greater than \
+      pm_max_spare_servers(${pm_max_spare_servers})")
+  }
 
-    if $ensure == 'absent' {
-        file { $pool_file_path:
-            ensure => 'absent',
-            notify => Service[$service_name],
-        }
-    }
-    else {
-        file { $pool_file_path:
-            ensure   => 'present',
-            owner    => 'root',
-            group    => 'root',
-            mode     => '0644',
-            content  => template($pool_template_file),
-            require  => Class['Phpfpm::Package'],
-            notify   => Service[$service_name],
-        }
-    }
+  file { $pool_file_path:
+    ensure  => $ensure,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template($pool_template_file),
+    require => Class['Phpfpm::Package'],
+    notify  => Service[$service_name],
+  }
 }
