@@ -140,7 +140,7 @@ class phpfpm::params {
       $config_dir                  = '/etc/'
       $config_name                 = 'php-fpm.conf'
       $config_template_file        = 'phpfpm/php-fpm.conf.erb'
-      $pool_dir                    = '/etc/php-fpm.d/'
+      $pool_dir                    = '/etc/php-fpm.d'
       $pid_file                    = '/var/run/php-fpm/php-fpm.pid'
       $error_log                   = '/var/log/php-fpm/error.log'
       $syslog_facility             = 'daemon'
