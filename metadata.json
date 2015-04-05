@@ -1,13 +1,39 @@
 {
-  "name": "Slashbunny-phpfpm",
-  "version": "0.0.7",
-  "author": "Slashbunny",
-  "summary": "Manages php-fpm daemon and pool configuration",
-  "license": "GPLv3",
-  "source": "https://github.com/Slashbunny/puppet-phpfpm",
-  "project_page": "https://github.com/Slashbunny/puppet-phpfpm",
-  "issues_url": null,
-  "description": "Manages php-fpm daemon and pool configuration",
-  "dependencies": [
-  ]
+    "name": "Slashbunny-phpfpm",
+    "version": "0.0.7",
+    "author": "Slashbunny",
+    "summary": "Manages php-fpm daemon and pool configuration",
+    "license": "GPL-3.0",
+    "source": "https://github.com/Slashbunny/puppet-phpfpm",
+    "project_page": "https://github.com/Slashbunny/puppet-phpfpm",
+    "issues_url": "https://github.com/Slashbunny/puppet-phpfpm/issues",
+    "description": "Manages php-fpm daemon and pool configuration",
+    "dependencies": [
+    ],
+    "operatingsystem_support": [
+        {
+            "operatingsystem": "RedHat",
+            "operatingsystemrelease": [ "6.0", "7.0"  ]
+        },
+        {
+            "operatingsystem": "CentOS",
+            "operatingsystemrelease": [ "7.0"  ]
+        },
+        {
+            "operatingsystem": "Ubuntu",
+            "operatingsystemrelease": [ "12.04" ]
+        },
+        {
+            "operatingsystem": "Debian",
+            "operatingsystemrelease": [ "7.0" ]
+        },
+        {
+            "operatingsystem": "ArchLinux",
+            "operatingsystemrelease": [ "Latest" ]
+        },
+        {
+            "operatingsystem": "AmazonAMI",
+            "operatingsystemrelease": [ "2014+" ]
+        }
+    ]
 }
