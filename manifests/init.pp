@@ -18,6 +18,7 @@
 #
 class phpfpm (
   $ensure                      = 'present',
+  $pools                       = $phpfpm::params::pools,
   $poold_purge                 = $phpfpm::params::poold_purge,
   $package_name                = $phpfpm::params::package_name,
   $service_name                = $phpfpm::params::service_name,
@@ -42,6 +43,8 @@ class phpfpm (
 
   # Install package
   include 'phpfpm::package'
+
+  create_resources('::phpfpm::pool', $pools)
 
   # Manage service and configuration only if the package is present
   if $ensure != 'absent' {
