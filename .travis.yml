@@ -1,9 +1,11 @@
 language: ruby
 rvm:
-    - 2.0.0
+    - 2.2.5
 script: "bundle exec rake test"
 env:
-    - PUPPET_VERSION=3.7.3
+    - PUPPET_VERSION=3.8.7
+    - PUPPET_VERSION=4.4.2
 notifications:
     email: false
 gemfile: Gemfile
+sudo: false
