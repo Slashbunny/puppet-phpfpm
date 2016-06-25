@@ -46,7 +46,7 @@ define phpfpm::pool (
     $chroot                    = $phpfpm::params::pool_chroot,
     $chdir                     = $phpfpm::params::pool_chdir,
     $catch_workers_output      = $phpfpm::params::pool_catch_workers_output,
-    $security_limit_extensions = $phpfpm::params::pool_sec_limit_extensions,
+    $security_limit_extensions = $phpfpm::params::pool_security_limit_extensions,
     $env                       = $phpfpm::params::pool_env,
     $php_value                 = $phpfpm::params::pool_php_value,
     $php_flag                  = $phpfpm::params::pool_php_flag,
