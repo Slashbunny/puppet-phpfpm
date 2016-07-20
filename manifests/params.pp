@@ -16,8 +16,8 @@ class phpfpm::params {
         $package_name                   = 'php7.0-fpm'
         $service_name                   = 'php7.0-fpm'
         $config_dir                     = '/etc/php/7.0/fpm'
-        $pid_file                       = '/var/run/php7-fpm.pid'
-        $error_log                      = '/var/log/php7-fpm.log'
+        $pid_file                       = '/var/run/php/php7.0-fpm.pid'
+        $error_log                      = '/var/log/php7.0-fpm.log'
       } else {
         $package_name                   = 'php5-fpm'
         $service_name                   = 'php5-fpm'
