@@ -11,14 +11,24 @@ class phpfpm::params {
       $poold_purge = false
 
       # Service configuration defaults
-      $package_name                   = 'php5-fpm'
-      $service_name                   = 'php5-fpm'
-      $config_dir                     = '/etc/php5/fpm'
+      # Ubuntu Xenial and above ship with php7 not php5
+      if versioncmp($::lsbdistrelease, '16.04') >= 0 {
+        $package_name                   = 'php7.0-fpm'
+        $service_name                   = 'php7.0-fpm'
+        $config_dir                     = '/etc/php/7.0/fpm'
+        $pid_file                       = '/var/run/php/php7.0-fpm.pid'
+        $error_log                      = '/var/log/php7.0-fpm.log'
+      } else {
+        $package_name                   = 'php5-fpm'
+        $service_name                   = 'php5-fpm'
+        $config_dir                     = '/etc/php5/fpm'
+        $pid_file                       = '/var/run/php5-fpm.pid'
+        $error_log                      = '/var/log/php5-fpm.log'
+      }
+
       $config_name                    = 'php-fpm.conf'
       $config_template_file           = 'phpfpm/php-fpm.conf.erb'
-      $pool_dir                       = '/etc/php5/fpm/pool.d'
-      $pid_file                       = '/var/run/php5-fpm.pid'
-      $error_log                      = '/var/log/php5-fpm.log'
+      $pool_dir                       = "${config_dir}/pool.d"
       $syslog_facility                = 'daemon'
       $syslog_ident                   = 'php-fpm'
       $log_level                      = 'notice'
