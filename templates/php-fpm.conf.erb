@@ -93,7 +93,7 @@ daemonize = <%= @daemonize %>
 ; Set open file descriptor rlimit for the master process.
 ; Default Value: system defined value
 <% if @rlimit_files -%>
-;rlimit_files = <%= @rlimit_files %>
+rlimit_files = <%= @rlimit_files %>
 <% else -%>
 ;rlimit_files = 1024
 <% end -%>
