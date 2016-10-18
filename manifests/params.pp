@@ -27,6 +27,8 @@ class phpfpm::params {
       }
 
       $config_name                    = 'php-fpm.conf'
+      $config_user                    = 'root'
+      $config_group                   = 'root'
       $config_template_file           = 'phpfpm/php-fpm.conf.erb'
       $pool_dir                       = "${config_dir}/pool.d"
       $syslog_facility                = 'daemon'
@@ -87,6 +89,8 @@ class phpfpm::params {
       $service_name                   = 'php-fpm'
       $config_dir                     = '/etc/php'
       $config_name                    = 'php-fpm.conf'
+      $config_user                    = 'root'
+      $config_group                   = 'root'
       $config_template_file           = 'phpfpm/php-fpm.conf.erb'
       $pool_dir                       = '/etc/php/fpm.d'
       $pid_file                       = '/run/php-fpm/php-fpm.pid'
@@ -149,6 +153,8 @@ class phpfpm::params {
       $service_name                   = 'php-fpm'
       $config_dir                     = '/etc/'
       $config_name                    = 'php-fpm.conf'
+      $config_user                    = 'root'
+      $config_group                   = 'root'
       $config_template_file           = 'phpfpm/php-fpm.conf.erb'
       $pool_dir                       = '/etc/php-fpm.d'
       $pid_file                       = '/var/run/php-fpm/php-fpm.pid'
@@ -211,6 +217,8 @@ class phpfpm::params {
       $service_name                   = 'php-fpm'
       $config_dir                     = '/usr/local/etc'
       $config_name                    = 'php-fpm.conf'
+      $config_user                    = 'root'
+      $config_group                   = 'wheel'
       $config_template_file           = 'phpfpm/php-fpm.conf.erb'
       $pool_dir                       = "${config_dir}/php-fpm.d"
       $pid_file                       = '/var/run/php-fpm.pid'
