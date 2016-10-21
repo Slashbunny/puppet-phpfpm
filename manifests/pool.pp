@@ -18,6 +18,8 @@
 #
 define phpfpm::pool (
     $ensure                    = 'present',
+    $config_user               = $phpfpm::params::config_user,
+    $config_group              = $phpfpm::params::config_group,
     $user                      = $phpfpm::params::pool_user,
     $group                     = $phpfpm::params::pool_group,
     $listen                    = $phpfpm::params::pool_listen,
@@ -67,8 +69,8 @@ define phpfpm::pool (
 
   file { $pool_file_path:
     ensure  => $ensure,
-    owner   => 'root',
-    group   => 'root',
+    owner   => $config_user,
+    group   => $config_group,
     mode    => '0644',
     content => template($pool_template_file),
     require => Class['Phpfpm::Package'],
