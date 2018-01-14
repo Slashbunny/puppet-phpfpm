@@ -11,8 +11,15 @@ class phpfpm::params {
       $poold_purge = false
 
       # Service configuration defaults
+      # Ubuntu Artful and above ship php 7.1
+      if (( $::operatingsystem == 'Ubuntu' ) and ( versioncmp($::lsbdistrelease, '17.10') >= 0 )) {
+        $package_name                   = 'php7.1-fpm'
+        $service_name                   = 'php7.1-fpm'
+        $config_dir                     = '/etc/php/7.1/fpm'
+        $pid_file                       = '/var/run/php/php7.1-fpm.pid'
+        $error_log                      = '/var/log/php7.1-fpm.log'
       # Ubuntu Xenial and above ship with php7 not php5
-      if (( $::operatingsystem == 'Ubuntu' ) and ( versioncmp($::lsbdistrelease, '16.04') >= 0 )) {
+      } elsif (( $::operatingsystem == 'Ubuntu' ) and ( versioncmp($::lsbdistrelease, '16.04') >= 0 )) {
         $package_name                   = 'php7.0-fpm'
         $service_name                   = 'php7.0-fpm'
         $config_dir                     = '/etc/php/7.0/fpm'
