@@ -1,6 +1,6 @@
 {
     "name": "Slashbunny-phpfpm",
-    "version": "0.0.14",
+    "version": "0.0.15",
     "author": "Slashbunny",
     "summary": "Manages php-fpm daemon and pool configuration",
     "license": "GPL-3.0",
@@ -38,6 +38,10 @@
         {
             "operatingsystem": "FreeBSD",
             "operatingsystemrelease": [ "10+" ]
+        },
+        {
+            "operatingsystem": "OpenBSD",
+            "operatingsystemrelease": [ "6.1", "6.2"  ]
         }
     ]
 }

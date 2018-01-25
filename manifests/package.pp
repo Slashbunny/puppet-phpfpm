@@ -5,8 +5,9 @@
 #
 class phpfpm::package {
 
-  package { $::phpfpm::package_name:
-    ensure => $::phpfpm::ensure,
+  package { 'php-fpm':
+    ensure =>  $::phpfpm::ensure,
+    name   =>  $::phpfpm::package_name,
   }
 }
 
