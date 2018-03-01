@@ -17,7 +17,7 @@
 # See README.md
 #
 class phpfpm (
-  $ensure                      = 'present',
+  $ensure                      = $phpfpm::params::ensure,
   $pools                       = undef,
   $poold_purge                 = $phpfpm::params::poold_purge,
   $package_name                = $phpfpm::params::package_name,
