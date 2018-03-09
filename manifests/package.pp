@@ -5,9 +5,10 @@
 #
 class phpfpm::package {
 
-  package { 'php-fpm':
-    ensure =>  $::phpfpm::ensure,
-    name   =>  $::phpfpm::package_name,
+  if( $::phpfpm::manage_package ) {
+    package { 'php-fpm':
+      ensure =>  $::phpfpm::ensure,
+      name   =>  $::phpfpm::package_name,
+    }
   }
 }
-

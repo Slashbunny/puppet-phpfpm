@@ -18,6 +18,7 @@
 #
 class phpfpm (
   $ensure                      = $phpfpm::params::ensure,
+  $manage_package              = $phpfpm::params::manage_package,
   $pools                       = undef,
   $poold_purge                 = $phpfpm::params::poold_purge,
   $package_name                = $phpfpm::params::package_name,
@@ -46,7 +47,7 @@ class phpfpm (
 
   # Create pools via hash instead of using phpfm::pool explicitly (optional)
   if $pools {
-      create_resources('::phpfpm::pool', $pools)
+    create_resources('::phpfpm::pool', $pools)
   }
 
   # Manage service and configuration only if the package is present
@@ -78,4 +79,3 @@ class phpfpm (
     }
   }
 }
-
