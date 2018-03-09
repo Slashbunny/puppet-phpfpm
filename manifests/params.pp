@@ -8,8 +8,9 @@ class phpfpm::params {
   case $::osfamily {
     'debian': {
       # Module configuration defaults
-      $poold_purge = false
-      $ensure      = 'present'
+      $poold_purge    = false
+      $ensure         = 'present'
+      $manage_package = true
 
       # Service configuration defaults
       # Ubuntu Artful and above ship php 7.1
@@ -170,7 +171,7 @@ class phpfpm::params {
       # Service configuration defaults
       $package_name                   = 'php-fpm'
       $service_name                   = 'php-fpm'
-      $config_dir                     = '/etc/'
+      $config_dir                     = '/etc'
       $config_name                    = 'php-fpm.conf'
       $config_user                    = 'root'
       $config_group                   = 'root'
