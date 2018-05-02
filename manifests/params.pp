@@ -13,8 +13,15 @@ class phpfpm::params {
       $manage_package = true
 
       # Service configuration defaults
+      # Ubuntu Bionic and above ship php 7.2
+      if (( $::operatingsystem == 'Ubuntu' ) and ( versioncmp($::lsbdistrelease, '18.04') >= 0 )) {
+        $package_name                   = 'php7.2-fpm'
+        $service_name                   = 'php7.2-fpm'
+        $config_dir                     = '/etc/php/7.2/fpm'
+        $pid_file                       = '/var/run/php/php7.2-fpm.pid'
+        $error_log                      = '/var/log/php7.2-fpm.log'
       # Ubuntu Artful and above ship php 7.1
-      if (( $::operatingsystem == 'Ubuntu' ) and ( versioncmp($::lsbdistrelease, '17.10') >= 0 )) {
+      } elsif (( $::operatingsystem == 'Ubuntu' ) and ( versioncmp($::lsbdistrelease, '17.10') >= 0 )) {
         $package_name                   = 'php7.1-fpm'
         $service_name                   = 'php7.1-fpm'
         $config_dir                     = '/etc/php/7.1/fpm'
