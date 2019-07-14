@@ -5,12 +5,13 @@
 #
 class phpfpm::params {
 
+  # Module configuration defaults
+  $poold_purge    = false
+  $manage_package = true
+
   case $::osfamily {
     'debian': {
-      # Module configuration defaults
-      $poold_purge    = false
-      $ensure         = 'present'
-      $manage_package = true
+      $ensure = 'present'
 
       # Service configuration defaults
       # Ubuntu Bionic and above ship php 7.2
@@ -34,7 +35,7 @@ class phpfpm::params {
         $config_dir                     = '/etc/php/7.0/fpm'
         $pid_file                       = '/var/run/php/php7.0-fpm.pid'
         $error_log                      = '/var/log/php7.0-fpm.log'
-      # Debian buster is ship with php7.3 
+      # Debian buster is ship with php7.3
       } elsif (( $::operatingsystem == 'Debian' ) and ( versioncmp($::lsbdistrelease, '10.0') >= 0 )) {
         $package_name                   = 'php7.3-fpm'
         $service_name                   = 'php7.3-fpm'
@@ -113,9 +114,7 @@ class phpfpm::params {
       $pool_php_admin_flag            = {}
     }
     'archlinux': {
-      # Module configuration defaults
-      $poold_purge = false
-      $ensure      = 'present'
+      $ensure = 'present'
 
       # Service configuration defaults
       $package_name                   = 'php-fpm'
@@ -178,9 +177,7 @@ class phpfpm::params {
       $pool_php_admin_flag            = {}
     }
     'redhat', 'linux': {
-      # Module configuration defaults
-      $poold_purge = false
-      $ensure      = 'present'
+      $ensure = 'present'
 
       # Service configuration defaults
       $package_name                   = 'php-fpm'
@@ -243,11 +240,9 @@ class phpfpm::params {
       $pool_php_admin_flag            = {}
     }
     'openbsd': {
-      # Module configuration defaults
-      $poold_purge = false
-      $ensure      = $::kernelversion ? {
-        '6.2'      => '7.0.23',
-        default    => '%7',
+      $ensure = $::kernelversion ? {
+        '6.2'   => '7.0.23',
+        default => '%7',
       }
 
       # Service configuration defaults
@@ -311,9 +306,7 @@ class phpfpm::params {
       $pool_php_admin_flag            = {}
     }
     'freebsd': {
-      # Module configuration defaults
-      $poold_purge = false
-      $ensure      = 'present'
+      $ensure = 'present'
 
       # Service configuration defaults
       $package_name                   = 'php70'
