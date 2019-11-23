@@ -15,35 +15,35 @@ class phpfpm::params {
 
       # Service configuration defaults
       # Ubuntu Bionic and above ship php 7.2
-      if $facts['os']['family'] == 'Ubuntu' and Integer($facts['os']['release']['major']) == 18 {
+      if $facts['os']['name'] == 'Ubuntu' and '18' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.2-fpm'
         $service_name                   = 'php7.2-fpm'
         $config_dir                     = '/etc/php/7.2/fpm'
         $pid_file                       = '/var/run/php/php7.2-fpm.pid'
         $error_log                      = '/var/log/php7.2-fpm.log'
       # Ubuntu Artful and above ship php 7.1
-      } elsif $facts['os']['family'] == 'Ubuntu' and Integer($facts['os']['release']['major']) == 17 {
+      } elsif $facts['os']['name'] == 'Ubuntu' and '17' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.1-fpm'
         $service_name                   = 'php7.1-fpm'
         $config_dir                     = '/etc/php/7.1/fpm'
         $pid_file                       = '/var/run/php/php7.1-fpm.pid'
         $error_log                      = '/var/log/php7.1-fpm.log'
       # Ubuntu Xenial and above ship with php7 not php5
-      } elsif $facts['os']['family'] == 'Ubuntu' and Integer($facts['os']['release']['major']) == 16 {
+      } elsif $facts['os']['name'] == 'Ubuntu' and '16' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.0-fpm'
         $service_name                   = 'php7.0-fpm'
         $config_dir                     = '/etc/php/7.0/fpm'
         $pid_file                       = '/var/run/php/php7.0-fpm.pid'
         $error_log                      = '/var/log/php7.0-fpm.log'
       # Debian buster is ship with php7.3
-      } elsif $facts['os']['family'] == 'Debian' and Integer($facts['os']['release']['major']) == 10 {
+      } elsif $facts['os']['name'] == 'Debian' and '10' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.3-fpm'
         $service_name                   = 'php7.3-fpm'
         $config_dir                     = '/etc/php/7.3/fpm'
         $pid_file                       = '/run/php/php7.3-fpm.pid'
         $error_log                      = '/var/log/php7.3-fpm.log'
       # Debian stretch and above ship with php7 not php5
-      } elsif $facts['os']['family'] == 'Debian' and Integer($facts['os']['release']['major']) == 9 {
+      } elsif $facts['os']['name'] == 'Debian' and '9' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.0-fpm'
         $service_name                   = 'php7.0-fpm'
         $config_dir                     = '/etc/php/7.0/fpm'
