@@ -73,7 +73,7 @@ define phpfpm::pool (
     group   => $config_group,
     mode    => '0644',
     content => template($pool_template_file),
-    require => Class['Phpfpm::Package'],
+    require => Class['phpfpm::package'],
     notify  => Service[$service_name],
   }
 }
