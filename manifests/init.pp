@@ -56,10 +56,11 @@ class phpfpm (
     # Manage daemon
     include 'phpfpm::service'
 
-    Class['phpfpm::package'] -> Class['phpfpm::service']
+    Class['phpfpm::package'] ~> Class['phpfpm::service']
 
     file { $pool_dir:
-      ensure => 'directory',
+      ensure  => 'directory',
+      require => Class['phpfpm::package'],
     }
 
     # Purge pool.d if necessary
@@ -75,6 +76,7 @@ class phpfpm (
     file { "${config_dir}/${config_name}":
       ensure  => 'present',
       content => template($config_template_file),
+      require => Class['phdfm::package'],
       notify  => Class['phpfpm::service'],
     }
   }
