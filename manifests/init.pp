@@ -76,7 +76,7 @@ class phpfpm (
     file { "${config_dir}/${config_name}":
       ensure  => 'present',
       content => template($config_template_file),
-      require => Class['phdfm::package'],
+      require => Class['phpfpm::package'],
       notify  => Class['phpfpm::service'],
     }
   }
