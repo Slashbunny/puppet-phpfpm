@@ -68,7 +68,6 @@ class phpfpm (
       File[$pool_dir] {
         purge   => true,
         recurse => true,
-        require => Class['phpfpm::package'],
       }
     }
 
