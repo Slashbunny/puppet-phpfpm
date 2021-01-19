@@ -106,6 +106,8 @@ class phpfpm::params {
       $pool_chroot                    = undef
       $pool_chdir                     = '/'
       $pool_catch_workers_output      = undef
+      $pool_decorate_workers_output   = undef
+      $pool_clear_env                 = undef
       $pool_security_limit_extensions = undef
       $pool_env                       = {}
       $pool_php_value                 = {}
@@ -169,6 +171,8 @@ class phpfpm::params {
       $pool_chroot                    = undef
       $pool_chdir                     = '/'
       $pool_catch_workers_output      = undef
+      $pool_decorate_workers_output   = undef
+      $pool_clear_env                 = undef
       $pool_security_limit_extensions = undef
       $pool_env                       = {}
       $pool_php_value                 = {}
@@ -232,6 +236,8 @@ class phpfpm::params {
       $pool_chroot                    = undef
       $pool_chdir                     = '/'
       $pool_catch_workers_output      = undef
+      $pool_decorate_workers_output   = undef
+      $pool_clear_env                 = undef
       $pool_security_limit_extensions = undef
       $pool_env                       = {}
       $pool_php_value                 = {}
@@ -298,6 +304,8 @@ class phpfpm::params {
       $pool_chroot                    = undef
       $pool_chdir                     = '/'
       $pool_catch_workers_output      = undef
+      $pool_decorate_workers_output   = undef
+      $pool_clear_env                 = undef
       $pool_security_limit_extensions = undef
       $pool_env                       = {}
       $pool_php_value                 = {}
@@ -361,6 +369,8 @@ class phpfpm::params {
       $pool_chroot                    = undef
       $pool_chdir                     = '/'
       $pool_catch_workers_output      = undef
+      $pool_decorate_workers_output   = undef
+      $pool_clear_env                 = undef
       $pool_security_limit_extensions = undef
       $pool_env                       = {}
       $pool_php_value                 = {}

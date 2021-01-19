@@ -48,6 +48,8 @@ define phpfpm::pool (
     $chroot                    = $phpfpm::params::pool_chroot,
     $chdir                     = $phpfpm::params::pool_chdir,
     $catch_workers_output      = $phpfpm::params::pool_catch_workers_output,
+    $decorate_workers_output   = $phpfpm::params::pool_decorate_workers_output,
+    $clear_env                 = $phpfpm::params::pool_clear_env,
     $security_limit_extensions = $phpfpm::params::pool_security_limit_extensions,
     $env                       = $phpfpm::params::pool_env,
     $php_value                 = $phpfpm::params::pool_php_value,
