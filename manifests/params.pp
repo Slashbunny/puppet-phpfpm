@@ -14,8 +14,15 @@ class phpfpm::params {
       $ensure = 'present'
 
       # Service configuration defaults
+      # Ubuntu Focal and above ship php 7.4
+      if $facts['os']['name'] == 'Ubuntu' and '20' in String($facts['os']['release']['major']) {
+        $package_name                   = 'php7.4-fpm'
+        $service_name                   = 'php7.4-fpm'
+        $config_dir                     = '/etc/php/7.4/fpm'
+        $pid_file                       = '/var/run/php/php7.4-fpm.pid'
+        $error_log                      = '/var/log/php7.4-fpm.log'
       # Ubuntu Bionic and above ship php 7.2
-      if $facts['os']['name'] == 'Ubuntu' and '18' in String($facts['os']['release']['major']) {
+      } elsif $facts['os']['name'] == 'Ubuntu' and '18' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.2-fpm'
         $service_name                   = 'php7.2-fpm'
         $config_dir                     = '/etc/php/7.2/fpm'
