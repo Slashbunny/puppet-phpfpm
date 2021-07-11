@@ -1,0 +1,16 @@
+---
+version: 5
+
+defaults:
+  datadir: 'data'
+  data_hash: 'yaml_data'
+
+hierarchy:
+  - name: 'module phpfpm, per os version'
+    path: '%{facts.os.family}/%{facts.os.name}_%{facts.os.release.major}.yaml'
+
+  - name: 'module phpfpm, per os'
+    path: '%{facts.os.family}/%{facts.os.name}.yaml'
+
+  - name: 'module phpfpm, os-family'
+    path: '%{facts.os.family}/common.yaml'
