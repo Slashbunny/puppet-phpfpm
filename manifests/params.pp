@@ -42,6 +42,13 @@ class phpfpm::params {
         $config_dir                     = '/etc/php/7.0/fpm'
         $pid_file                       = '/var/run/php/php7.0-fpm.pid'
         $error_log                      = '/var/log/php7.0-fpm.log'
+      # Debian bookworm ships with php8.2
+      } elsif $facts['os']['name'] == 'Debian' and '12' in String($facts['os']['release']['major']) {
+        $package_name                   = 'php8.2-fpm'
+        $service_name                   = 'php8.2-fpm'
+        $config_dir                     = '/etc/php/8.2/fpm'
+        $pid_file                       = '/run/php/php8.2-fpm.pid'
+        $error_log                      = '/var/log/php8.2-fpm.log'
       # Debian bullseye ships with php7.4
       } elsif $facts['os']['name'] == 'Debian' and '11' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.4-fpm'
