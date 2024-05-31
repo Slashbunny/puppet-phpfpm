@@ -9,7 +9,7 @@ class phpfpm::params {
   $poold_purge    = false
   $manage_package = true
 
-  case $::osfamily {
+  case $facts['os']['family'] {
     'debian': {
       $ensure = 'present'
 
@@ -74,7 +74,7 @@ class phpfpm::params {
         $package_name                   = 'php5-fpm'
         $service_name                   = 'php5-fpm'
         $config_dir                     = '/etc/php5/fpm'
-        case $::operatingsystem {
+        case $facts['os']['name'] {
           'Debian':         { $pid_file = '/run/php5-fpm.pid' }
           default:          { $pid_file = '/var/run/php5-fpm.pid' }
         }
@@ -267,7 +267,7 @@ class phpfpm::params {
       $pool_php_admin_flag            = {}
     }
     'openbsd': {
-      $ensure = $::kernelversion ? {
+      $ensure = $facts['kernelversion'] ? {
         '6.2'   => '7.0.23',
         default => '%7',
       }
@@ -400,7 +400,7 @@ class phpfpm::params {
       $pool_php_admin_flag            = {}
     }
     default: {
-      fail( "Unsupported platform: ${::osfamily}" )
+      fail( "Unsupported platform: ${facts['os']['family']}" )
     }
   }
 }
