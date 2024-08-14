@@ -1,6 +1,6 @@
 {
   "name": "Slashbunny-phpfpm",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "author": "Slashbunny",
   "summary": "Manages php-fpm daemon and pool configuration",
   "license": "GPL-3.0",
