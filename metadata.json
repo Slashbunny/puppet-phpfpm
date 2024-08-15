@@ -78,7 +78,7 @@
     }
   ],
   "description": "Manages php-fpm daemon and pool configuration",
-  "pdk-version": "1.10.0",
-  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git#1.10.0",
-  "template-ref": "1.10.0-0-gbba9ac3"
+  "pdk-version": "3.2.0",
+  "template-url": "pdk-default#3.2.0",
+  "template-ref": "tags/3.2.0-0-gb257ef1"
 }
