@@ -55,6 +55,10 @@ group :system_tests do
 end
 
 group :release do
+  # Require the latest Puppet by default unless a specific version was requested
+  # CI will typically set it to '~> 7.0' to get 7.x
+  gem 'puppet', ENV.fetch('PUPPET_GEM_VERSION', '>= 0'), require: false
+  # Helper Gem to push releases to Puppet Forge
   gem 'voxpupuli-release', '~> 3.0',  :require => false
 end
 
