@@ -13,7 +13,7 @@ def location_for(place_or_version, fake_version = nil)
   end
 end
 
-group :development do
+group :development, :test do
   gem "json", '= 2.1.0',                         require: false if Gem::Requirement.create(['>= 2.5.0', '< 2.7.0']).satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
   gem "json", '= 2.3.0',                         require: false if Gem::Requirement.create(['>= 2.7.0', '< 3.0.0']).satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
   gem "json", '= 2.5.1',                         require: false if Gem::Requirement.create(['>= 3.0.0', '< 3.0.5']).satisfied_by?(Gem::Version.new(RUBY_VERSION.dup))
@@ -34,6 +34,13 @@ group :development do
   gem "rubocop-performance", '= 1.16.0',         require: false
   gem "rubocop-rspec", '= 2.19.0',               require: false
   gem "rb-readline", '= 0.5.5',                  require: false, platforms: [:mswin, :mingw, :x64_mingw]
+  # Require the latest Puppet by default unless a specific version was requested
+  # CI will typically set it to '~> 7.0' to get 7.x
+  gem 'puppet', ENV.fetch('PUPPET_GEM_VERSION', '>= 0'), require: false
+  # Needed to build the test matrix based on metadata
+  gem 'puppet_metadata', '~> 3.4', require: false
+  # Needed for the rake tasks
+  gem "puppetlabs_spec_helper", '~> 7.0', require: false
 end
 group :development, :release_prep do
   gem "puppet-strings", '~> 4.0',         require: false
@@ -43,6 +50,10 @@ group :system_tests do
   gem "puppet_litmus", '~> 1.0',   require: false, platforms: [:ruby, :x64_mingw]
   gem "CFPropertyList", '< 3.0.7', require: false, platforms: [:mswin, :mingw, :x64_mingw]
   gem "serverspec", '~> 2.41',     require: false
+end
+# The release group is used in gha-puppet's release workflow
+group :release do
+  gem 'puppet-blacksmith', '>= 6', '< 8', require: false
 end
 
 puppet_version = ENV['PUPPET_GEM_VERSION']

@@ -1,1 +1,4 @@
 --relative
+--fail-on-warnings
+--no-parameter-documentation-check
+--no-parameter-types-check
