@@ -11,8 +11,6 @@ jobs:
     uses: voxpupuli/gha-puppet/.github/workflows/release.yml@v2
     with:
       allowed_owner: Slashbunny
-    env:
-      PUPPET_GEM_VERSION: "~> 7.0"
     secrets:
       username: ${{ secrets.PUPPET_FORGE_USERNAME }}
       api_key: ${{ secrets.PUPPET_FORGE_API_KEY }}

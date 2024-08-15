@@ -34,18 +34,12 @@ group :development, :test do
   gem "rubocop-performance", '= 1.16.0',         require: false
   gem "rubocop-rspec", '= 2.19.0',               require: false
   gem "rb-readline", '= 0.5.5',                  require: false, platforms: [:mswin, :mingw, :x64_mingw]
-  # Require the latest Puppet by default unless a specific version was requested
-  # CI will typically set it to '~> 7.0' to get 7.x
-  gem 'puppet', ENV.fetch('PUPPET_GEM_VERSION', '>= 0'), require: false
   # Needed to build the test matrix based on metadata
   gem 'puppet_metadata', '~> 3.4', require: false
-  # Needed for the rake tasks
-  gem "puppetlabs_spec_helper", '~> 7.0', require: false
 end
 
 group :development, :release_prep do
   gem "puppet-strings", '~> 4.0',         require: false
-  gem "puppetlabs_spec_helper", '~> 7.0', require: false
 end
 
 group :system_tests do
@@ -55,16 +49,17 @@ group :system_tests do
 end
 
 group :release do
-  # Require the latest Puppet by default unless a specific version was requested
-  # CI will typically set it to '~> 7.0' to get 7.x
-  gem 'puppet', ENV.fetch('PUPPET_GEM_VERSION', '>= 0'), require: false
   # Helper Gem to push releases to Puppet Forge
   gem 'voxpupuli-release', '~> 3.0',  :require => false
 end
 
-puppet_version = ENV['PUPPET_GEM_VERSION']
+puppet_version = ENV['PUPPET_GEM_VERSION'] || '~> 7.24'
 facter_version = ENV['FACTER_GEM_VERSION']
 hiera_version = ENV['HIERA_GEM_VERSION']
+
+# Gems used by multiple groups
+gem 'puppet', puppet_version, :require => false, :groups => [:test, :release]
+gem "puppetlabs_spec_helper", '~> 7.0', require: false, :groups => [:development, :test, :release_prep]
 
 gems = {}
 
