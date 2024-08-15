@@ -5,13 +5,11 @@
 # use this class to notify php-fpm
 #
 class phpfpm::service {
-
-  service { $::phpfpm::service_name:
+  service { $phpfpm::service_name:
     ensure     => 'running',
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
-    restart    => $::phpfpm::restart_command,
+    restart    => $phpfpm::restart_command,
   }
 }
-

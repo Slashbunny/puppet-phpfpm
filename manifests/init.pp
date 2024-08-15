@@ -41,7 +41,6 @@ class phpfpm (
   $rlimit_core                 = $phpfpm::params::rlimit_core,
   $restart_command             = $phpfpm::params::restart_command,
 ) inherits phpfpm::params {
-
   # Install package
   include 'phpfpm::package'
 
@@ -52,7 +51,6 @@ class phpfpm (
 
   # Manage service and configuration only if the package is present
   if $ensure != 'absent' {
-
     # Manage daemon
     include 'phpfpm::service'
 
@@ -73,7 +71,7 @@ class phpfpm (
 
     # Main php-fpm config file
     file { "${config_dir}/${config_name}":
-      ensure  => 'present',
+      ensure  => file,
       content => template($config_template_file),
       require => Class['phpfpm::package'],
       notify  => Class['phpfpm::service'],

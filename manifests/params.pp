@@ -4,7 +4,6 @@
 # Configuration for the phpfpm module. Do not use this class directly.
 #
 class phpfpm::params {
-
   # Module configuration defaults
   $poold_purge    = false
   $manage_package = true
@@ -21,49 +20,49 @@ class phpfpm::params {
         $config_dir                     = '/etc/php/7.4/fpm'
         $pid_file                       = '/var/run/php/php7.4-fpm.pid'
         $error_log                      = '/var/log/php7.4-fpm.log'
-      # Ubuntu Bionic and above ship php 7.2
+        # Ubuntu Bionic and above ship php 7.2
       } elsif $facts['os']['name'] == 'Ubuntu' and '18' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.2-fpm'
         $service_name                   = 'php7.2-fpm'
         $config_dir                     = '/etc/php/7.2/fpm'
         $pid_file                       = '/var/run/php/php7.2-fpm.pid'
         $error_log                      = '/var/log/php7.2-fpm.log'
-      # Ubuntu Artful and above ship php 7.1
+        # Ubuntu Artful and above ship php 7.1
       } elsif $facts['os']['name'] == 'Ubuntu' and '17' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.1-fpm'
         $service_name                   = 'php7.1-fpm'
         $config_dir                     = '/etc/php/7.1/fpm'
         $pid_file                       = '/var/run/php/php7.1-fpm.pid'
         $error_log                      = '/var/log/php7.1-fpm.log'
-      # Ubuntu Xenial and above ship with php7 not php5
+        # Ubuntu Xenial and above ship with php7 not php5
       } elsif $facts['os']['name'] == 'Ubuntu' and '16' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.0-fpm'
         $service_name                   = 'php7.0-fpm'
         $config_dir                     = '/etc/php/7.0/fpm'
         $pid_file                       = '/var/run/php/php7.0-fpm.pid'
         $error_log                      = '/var/log/php7.0-fpm.log'
-      # Debian bookworm ships with php8.2
+        # Debian bookworm ships with php8.2
       } elsif $facts['os']['name'] == 'Debian' and '12' in String($facts['os']['release']['major']) {
         $package_name                   = 'php8.2-fpm'
         $service_name                   = 'php8.2-fpm'
         $config_dir                     = '/etc/php/8.2/fpm'
         $pid_file                       = '/run/php/php8.2-fpm.pid'
         $error_log                      = '/var/log/php8.2-fpm.log'
-      # Debian bullseye ships with php7.4
+        # Debian bullseye ships with php7.4
       } elsif $facts['os']['name'] == 'Debian' and '11' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.4-fpm'
         $service_name                   = 'php7.4-fpm'
         $config_dir                     = '/etc/php/7.4/fpm'
         $pid_file                       = '/run/php/php7.4-fpm.pid'
         $error_log                      = '/var/log/php7.4-fpm.log'
-      # Debian buster ships with php7.3
+        # Debian buster ships with php7.3
       } elsif $facts['os']['name'] == 'Debian' and '10' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.3-fpm'
         $service_name                   = 'php7.3-fpm'
         $config_dir                     = '/etc/php/7.3/fpm'
         $pid_file                       = '/run/php/php7.3-fpm.pid'
         $error_log                      = '/var/log/php7.3-fpm.log'
-      # Debian stretch ships with php7.0
+        # Debian stretch ships with php7.0
       } elsif $facts['os']['name'] == 'Debian' and '9' in String($facts['os']['release']['major']) {
         $package_name                   = 'php7.0-fpm'
         $service_name                   = 'php7.0-fpm'
