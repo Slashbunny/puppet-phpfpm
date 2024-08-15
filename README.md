@@ -1,5 +1,8 @@
 # puppet-phpfpm
-[![Build Status](https://travis-ci.org/Slashbunny/puppet-phpfpm.png?branch=master)](https://travis-ci.org/Slashbunny/puppet-phpfpm)
+[![Build Status](https://github.com/Slashbunny/puppet-phpfpm/actions/workflows/puppet.yml/badge.svg?branch=master)](https://github.com/Slashbunny/puppet-phpfpm/actions/workflows/puppet.yml)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/Slashbunny/phpfpm.svg)](https://forge.puppet.com/modules/Slashbunny/phpfpm)
+[![Puppet Forge Downloads](https://img.shields.io/puppetforge/dt/Slashbunny/phpfpm.svg)](https://forge.puppet.com/modules/Slashbunny/phpfpm)
+[![Puppet Forge Scores](https://img.shields.io/puppetforge/f/Slashbunny/phpfpm.svg)](https://forge.puppet.com/modules/Slashbunny/phpfpm)
 ## Overview
 
 This module manages the php-fpm daemon and pools **only**. Managing php, php extensions, pear, pecl, nginx, apache, etc are out of the scope of this module.
