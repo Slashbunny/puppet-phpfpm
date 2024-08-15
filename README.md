@@ -5,9 +5,9 @@
 [![Puppet Forge Scores](https://img.shields.io/puppetforge/f/Slashbunny/phpfpm.svg)](https://forge.puppet.com/modules/Slashbunny/phpfpm)
 ## Overview
 
-This module manages the php-fpm daemon and pools **only**. Managing php, php extensions, pear, pecl, nginx, apache, etc are out of the scope of this module.
+This module manages the php-fpm daemon and pools **only**. Managing PHP, PHP extensions, Composer, PEAR, PECL, nginx, Apache, etc are out of the scope of this module.
 
-The module has been tested on Ubuntu, CentOS/RHEL, Archlinux and Amazon AMI.
+The module has been tested on Ubuntu, CentOS/RHEL, Arch Linux, Amazon AMI, FreeBSD, and OpenBSD. It should be able to easily support any distribution that has an official phpfpm package with a few configuration additions.
 
 * `phpfpm` : Class that installs and configures php-fpm itself.
 * `phpfpm::pool` : Definition used to configure a fpm pool
