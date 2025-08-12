@@ -1,0 +1,11 @@
+---
+# defaults for Debian 13 (trixie)
+
+phpfpm::package_name: 'php8.4-fpm'
+phpfpm::service_name: 'php8.4-fpm'
+phpfpm::config_dir: '/etc/php/8.4/fpm'
+phpfpm::pid_file: '/run/php/php8.4-fpm.pid'
+phpfpm::error_log: '/var/log/php8.4-fpm.log'
+
+phpfpm::pool_dir: '/etc/php/8.4/fpm/pool.d'
+phpfpm::restart_command: 'service php8.4-fpm reload'
