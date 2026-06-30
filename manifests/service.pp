@@ -6,8 +6,8 @@
 #
 class phpfpm::service {
   service { $phpfpm::service_name:
-    ensure     => 'running',
-    enable     => true,
+    ensure     => $phpfpm::ensure_service,
+    enable     => $phpfpm::enable_service,
     hasstatus  => true,
     hasrestart => true,
     restart    => $phpfpm::restart_command,

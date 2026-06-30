@@ -95,6 +95,8 @@ class phpfpm::params {
       $rlimit_files                   = undef
       $rlimit_core                    = undef
       $restart_command                = "service ${service_name} reload"
+      $ensure_service                 = 'running'
+      $enable_service                 = true
 
       # Pool configuration defaults
       $pool_template_file             = 'phpfpm/pool.conf.erb'
@@ -160,6 +162,8 @@ class phpfpm::params {
       $rlimit_files                   = undef
       $rlimit_core                    = undef
       $restart_command                = "systemctl reload ${service_name}"
+      $ensure_service                 = 'running'
+      $enable_service                 = true
 
       # Pool configuration defaults
       $pool_template_file             = 'phpfpm/pool.conf.erb'
@@ -225,6 +229,8 @@ class phpfpm::params {
       $rlimit_files                   = undef
       $rlimit_core                    = undef
       $restart_command                = "service ${service_name} reload"
+      $ensure_service                 = 'running'
+      $enable_service                 = true
 
       # Pool configuration defaults
       $pool_template_file             = 'phpfpm/pool.conf.erb'
@@ -293,6 +299,8 @@ class phpfpm::params {
       $rlimit_files                   = undef
       $rlimit_core                    = undef
       $restart_command                = "rcctl restart ${service_name}"
+      $ensure_service                 = 'running'
+      $enable_service                 = true
 
       # Pool configuration defaults
       $pool_template_file             = 'phpfpm/pool.conf.erb'
@@ -358,6 +366,8 @@ class phpfpm::params {
       $rlimit_files                   = undef
       $rlimit_core                    = undef
       $restart_command                = "service ${service_name} reload"
+      $ensure_service                 = 'running'
+      $enable_service                 = true
 
       # Pool configuration defaults
       $pool_template_file             = 'phpfpm/pool.conf.erb'

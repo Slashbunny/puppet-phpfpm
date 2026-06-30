@@ -40,6 +40,8 @@ class phpfpm (
   $rlimit_files                = $phpfpm::params::rlimit_files,
   $rlimit_core                 = $phpfpm::params::rlimit_core,
   $restart_command             = $phpfpm::params::restart_command,
+  $ensure_service              = $phpfpm::params::ensure_service,
+  $enable_service              = $phpfpm::params::enable_service,
 ) inherits phpfpm::params {
   # Install package
   include 'phpfpm::package'
