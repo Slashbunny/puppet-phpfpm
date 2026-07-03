@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     name: Deploy
-    uses: voxpupuli/gha-puppet/.github/workflows/release.yml@v2
+    uses: voxpupuli/gha-puppet/.github/workflows/release.yml@v4
     with:
       allowed_owner: Slashbunny
     secrets:
